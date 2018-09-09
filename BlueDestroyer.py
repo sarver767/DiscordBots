@@ -19,6 +19,7 @@ insult = random.SystemRandom()
 # Create Coin
 coin = ['Heads', 'Tails']
 side = random.SystemRandom()
+side = side.choice(coin)
 
 # Create Bot Commands
 bot = commands.Bot(command_prefix = '.')
@@ -47,8 +48,8 @@ async def on_message(message):
 @bot.event
 async def on_message(message):
     userID = message.author.id
-    if message.content.upper().startswith('COIN FLIP'):
-        await bot.send_message(message.channel, "<@%s>" + side.choice(coin) % (userID))
+    if message.content.upper().startswith('!COIN FLIP'):
+        await bot.send_message(message.channel, "<@%s>" + side % (userID))
         await bot.process_commands(message)
     
 bot.run(os.getenv('TOKEN'))
