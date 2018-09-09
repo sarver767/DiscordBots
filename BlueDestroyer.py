@@ -16,8 +16,12 @@ from pathlib import Path
 response = ['You will be contained!', 'Get your gayness outta here!', 'Sucken dick I see...', 'Stop linking gay shit', 'One day you will be no more.']
 insult = random.SystemRandom()
 
+# Create Coin
+coin = ['Heads', 'Tails']
+side = random.SystemRandom()
+
 # Create Bot Commands
-bot = commands.Bot(command_prefix='#')
+bot = commands.Bot(command_prefix='.')
 
 # Prep Bot
 @bot.event
@@ -39,6 +43,11 @@ async def on_message(message):
         await bot.delete_message(message)
         await bot.send_message(message.author, insult.choice(response))
         await bot.process_commands(message)
+        
+@bot.command()
+async def flip():
+    await client.say(side.choice(coin))
+    
 
 
 bot.run(os.getenv('TOKEN'))
