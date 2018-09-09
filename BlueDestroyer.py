@@ -28,7 +28,7 @@ async def on_ready():
 async def on_message(message):
     if message.content[-8:] == "cat3.jpg":
         await bot.delete_message(message)
-        await bot.send_message(message.author, insult.choice(response)
+        await bot.send_message(message.author, insult.choice(response))
         await bot.process_commands(message)
 
 
