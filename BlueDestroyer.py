@@ -44,7 +44,8 @@ async def on_message(message):
         await bot.delete_message(message)
         await bot.send_message(message.author, insult.choice(response))
         await bot.process_commands(message)
-        
+  
+# Coin Flip Event
 @bot.event
 async def on_message(message):
     userID = message.author.name
