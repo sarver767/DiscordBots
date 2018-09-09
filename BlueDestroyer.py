@@ -21,7 +21,7 @@ coin = ['Heads', 'Tails']
 side = random.SystemRandom()
 
 # Create Bot Commands
-bot = commands.Bot(command_prefix='.')
+bot = commands.Bot(command_prefix = '.')
 
 # Prep Bot
 @bot.event
