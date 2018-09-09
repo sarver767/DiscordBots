@@ -47,7 +47,7 @@ async def on_message(message):
 @bot.event
 async def on_message(message):
     if message.content.startswith('coin flip')
-        await bot.say(side.choice(coin))
+        await bot.send_message(message.channel, "<@%s>" + side.choice(coin) % (userID))
         await bot.process_commands(message)
     
 bot.run(os.getenv('TOKEN'))
