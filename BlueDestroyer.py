@@ -8,6 +8,9 @@ import asyncio
 import chalk
 import os
 import random
+import re
+import sys
+from pathlib import Path
 
 # Create Response List
 response = ['You will be contained!', 'Get your gayness outta here!', 'Sucken dick I see...', 'Stop linking gay shit', 'One day you will be no more.']
@@ -26,6 +29,12 @@ async def on_ready():
 
 @bot.event
 async def on_message(message):
+    for attachment in message.attachments:
+        if attachment['filename'].content[-8] == "cat3.jpg":
+            await bot.delete_message(message)
+            await bot.send_message(message.author, insult.choice(response))
+            await bot.process_commands(message) 
+            
     if message.content[-8:] == "cat3.jpg":
         await bot.delete_message(message)
         await bot.send_message(message.author, insult.choice(response))
