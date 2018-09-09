@@ -50,7 +50,7 @@ async def on_message(message):
 async def on_message(message):
     userID = message.author.name
     if message.content.upper().startswith('!COIN FLIP'):
-        await bot.send_message(message.channel, '@' + userID + ' ' + side)
+        await bot.send_message(message.channel, '%s' %  userID + ' ' + side)
         await bot.process_commands(message)
     
 bot.run(os.getenv('TOKEN'))
