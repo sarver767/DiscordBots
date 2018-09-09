@@ -47,7 +47,7 @@ async def on_message(message):
         
 @bot.event
 async def on_message(message):
-    userID = message.author.id
+    userID = message.author.name
     if message.content.upper().startswith('!COIN FLIP'):
         await bot.send_message(message.channel, '@' + userID + ' ' + side)
         await bot.process_commands(message)
