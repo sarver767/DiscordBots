@@ -30,7 +30,7 @@ async def on_ready():
 @bot.event
 async def on_message(message):
     for attachment in message.attachments:
-        if attachment['filename'][-8] == "cat3.jpg":
+        if attachment['filename'].find("cat3.jpg") > -1:
             await bot.delete_message(message)
             await bot.send_message(message.author, insult.choice(response))
             await bot.process_commands(message) 
