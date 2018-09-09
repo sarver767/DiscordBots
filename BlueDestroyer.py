@@ -46,8 +46,6 @@ async def on_message(message):
         
 @bot.command()
 async def flip():
-    await client.say(side.choice(coin))
+    await bot.say(side.choice(coin))
     
-
-
 bot.run(os.getenv('TOKEN'))
