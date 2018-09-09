@@ -17,7 +17,7 @@ response = ['You will be contained!', 'Get your gayness outta here!', 'Sucken di
 insult = random.SystemRandom()
 
 # Create Coin
-coin = ['Heads', 'Tails']
+coin = ['Heads!', 'Tails!']
 side = random.SystemRandom()
 side = side.choice(coin)
 
@@ -49,7 +49,7 @@ async def on_message(message):
 async def on_message(message):
     userID = message.author.id
     if message.content.upper().startswith('!COIN FLIP'):
-        await bot.send_message(message.channel, side)
+        await bot.send_message(message.channel, '@' + userID + ' ' + side)
         await bot.process_commands(message)
     
 bot.run(os.getenv('TOKEN'))
