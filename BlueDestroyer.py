@@ -46,7 +46,7 @@ async def on_message(message):
         
 @bot.event
 async def on_message(message):
-    if message.content.startswith('coin flip')"
+    if message.content.startswith('coin flip')
         await bot.say(side.choice(coin))
         await bot.process_commands(message)
     
