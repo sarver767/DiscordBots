@@ -17,7 +17,7 @@ response = ['You will be contained!', 'Get your gayness outta here!', 'Sucken di
 insult = random.SystemRandom()
 
 # Create Coin
-coin = ['Heads.gif', 'Tails.gif']
+coin = ['/Heads.gif', '/Tails.gif']
 side = random.SystemRandom()
 
 # Create Bot Commands
