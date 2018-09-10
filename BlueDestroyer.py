@@ -43,14 +43,5 @@ async def on_message(message):
         await bot.delete_message(message)
         await bot.send_message(message.author, insult.choice(response))
         await bot.process_commands(message)
-  
-# Coin Flip Event
-@bot.event
-async def on_message(message):
-    sideA = side.choice(coin)
-    userID = message.author.id
-    if message.content.upper().startswith('!COIN FLIP'):
-        await bot.send_message(message.channel, "<@%s>" %  (userID) + ' ' + sideA)
-        await bot.process_commands(message)
     
 bot.run(os.getenv('TOKEN'))
