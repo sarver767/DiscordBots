@@ -33,15 +33,26 @@ async def on_ready():
 
 @bot.event
 async def on_message(message):
+    #Save userId
+    userID = message.author.id
+    
+    #Delete Terrible Picture
     for attachment in message.attachments:
         if attachment['filename'].find("cat3.jpg") > -1:
             await bot.delete_message(message)
             await bot.send_message(message.author, insult.choice(response))
             await bot.process_commands(message) 
-            
+    
+    #Delete Terrible Picture 
     if message.content[-8:] == "cat3.jpg":
         await bot.delete_message(message)
         await bot.send_message(message.author, insult.choice(response))
         await bot.process_commands(message)
     
+    #Coin Flip
+    if message.content.upper().startswith('!COIN FLIP'):
+        sideA = side.choice(coin)
+        await bot.send_message(message.channel, "<@%s>" %  (userID) + ' ' + sideA)
+        await bot.process_commands(message) 
+          
 bot.run(os.getenv('TOKEN'))
