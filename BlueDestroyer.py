@@ -17,7 +17,7 @@ response = ['You will be contained!', 'Get your gayness outta here!', 'Sucken di
 insult = random.SystemRandom()
 
 # Create Coin
-coin = ['/app/Heads.gif', '/app/Tails.gif']
+coin = ['https://raw.githubusercontent.com/sarver767/DiscordBots/master/Heads.gif', 'https://raw.githubusercontent.com/sarver767/DiscordBots/master/Tails.gif']
 side = random.SystemRandom()
 
 # Create Bot Commands
@@ -50,8 +50,7 @@ async def on_message(message):
     sideA = side.choice(coin)
     userID = message.author.id
     if message.content.upper().startswith('!COIN FLIP'):
-        await bot.send_message(message.channel, "<@%s>" %  (userID))
-        await bot.send_file(message.channel, open(sideA))
+        await bot.send_message(message.channel, "<@%s>" %  (userID) + ' ' + sidA)
         await bot.process_commands(message)
     
 bot.run(os.getenv('TOKEN'))
